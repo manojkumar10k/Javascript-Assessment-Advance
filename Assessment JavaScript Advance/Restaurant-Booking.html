@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Restaurant-Booking.css" />
+    <title>Restaurant Booking</title>
+  </head>
+  <body>
+		
+	
+    <form action="">
+      <h1>Restaurant Booking</h1>
+      <label for="">Choice of booking :</label>
+      <select name="day-booking" id="day-booking" onchange="change()">
+        <option value="full-day">Full day Booking</option>
+        <option value="half-day">Half day Booking</option>
+        <option value="hourly-day">Hourly day Booking</option>
+      </select>
+
+      <label for="">User Name :</label>
+      <input type="text" name="" id="username" />
+       <b id="user"></b>
+      <label for="">Mobile Number :</label>
+      <input type="number" name="" id="inpt-mobile"  pattern="[0-9]{10}" />
+        <b id="mobile"></b>
+      <label for="">Email :</label>
+      <input type="email" name="" id="inpt_email" />
+     <b id="email"></b>
+      <label for="">Number Of Persons :</label>
+      <input type="number" name="" id="no-Persons" />
+       <b id="Persons"></b>
+      <label for="">Date :</label>
+      <input type="date" name="" id="inpt-date" />
+      <b id="date"></b>
+      <div class="slot" style="display: none">
+        <label for="">Slot :</label>
+        <select name="" id="">
+          <option value="">Breakfast</option>
+          <option value="">Lunch</option>
+          <option value="">Dinner</option>
+        </select>
+      </div>
+
+      <div class="time" style="display: none">
+        <label for="">Slot :</label>
+        <input type="time" name="" id="inpt-time" />
+        <b id="time"></b>
+
+      </div>
+
+      <button type="submit" onclick=" return err()" >Submit</button>
+    </form>
+
+    <script>
+
+      function change() {
+        const dayBooking = document.querySelector("#day-booking").value;
+        const slot = document.querySelector(".slot");
+        const time = document.querySelector(".time");
+
+        slot.style.display = "none";
+        time.style.display = "none";
+
+        console.log(slot);
+        console.log(time);
+
+        if (dayBooking === "full-day") {
+          slot.style.display = "none";
+          time.style.display = "none";
+        } else if (dayBooking === "half-day") {
+          slot.style.display = "block";
+          time.style.display = "none";
+        } else if (dayBooking === "hourly-day") {
+          slot.style.display = "none";
+          time.style.display = "block";
+        }
+      }
+
+      let username = document.querySelector("#username");
+      let user = document.querySelector("#user");
+
+      let mobile = document.querySelector("#mobile")
+      let inpt_mobile = document.querySelector("#inpt-mobile")
+
+      let inpt_email = document.querySelector("#inpt_email")
+      let email = document.querySelector("#email")
+
+      let no_Persons = document.querySelector("#no-Persons")
+      let Persons = document.querySelector("#Persons")
+
+
+      let inpt_date = document.querySelector("#inpt-date")
+      let date = document.querySelector("#date")
+
+      let inpt_time = document.querySelector("#inpt-time")
+      let time = document.querySelector("#time")
+
+
+      function err() {
+        if (username.value == "") {
+            user.innerHTML = "Enter your Name"
+            user.style.color ="red"
+            
+        }else{
+          user.innerHTML = ""
+        }
+        if (inpt_mobile.value == "") {
+            mobile.innerHTML = "Enter your Mobile"
+            mobile.style.color ="red"
+        }else{
+        mobile.innerHTML = ""
+        }
+        if (inpt_email.value == "") {
+            email.innerHTML = "Enter your Email"
+            email.style.color ="red"
+        }else{
+          email.innerHTML = ""
+        }
+        if (no_Persons.value == "") {
+            Persons.innerHTML = "Enter your Number of Persons"
+            Persons.style.color ="red"
+            
+        }else{
+          Persons.innerHTML = ""
+        }
+        if (inpt_date.value == "") {
+            date.innerHTML = "Enter your Date"
+            date.style.color ="red"
+        }else{
+          date.innerHTML = ""
+        }
+        if (inpt_time.value == "") {
+            time.innerHTML = "Enter your Time"
+            time.style.color ="red"
+        }else{
+          time.innerHTML = ""
+        } return false
+      }
+
+    </script>
+  </body>
+</html>
